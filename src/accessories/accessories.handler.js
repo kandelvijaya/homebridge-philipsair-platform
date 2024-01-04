@@ -24,8 +24,12 @@ class Handler {
 
     // FIXME: Here we test for some models (set with configuration, not yet pulled from received type or modelid)
     // This should be extracted into a separate configuration function which handles different models.
-    if (this.accessory.context.config.model == 'AC3036' || this.accessory.context.config.model == 'AC1715') {
+    if (this.accessory.context.config.model == 'AC3036') {
       this.speeds = [{ mode: 'S' }, { mode: 'AG' }, { mode: 'M', om: 1 }, { mode: 'M', om: 2 }, { mode: 'T' }];
+    }
+
+    if (this.accessory.context.config.model == 'AC1715') {
+      this.speeds = [{ mode: 'Sleep' }, { mode: "Auto General" }, { mode: "Gentle/Speed 1" }, { mode: "Speed 2" }, { mode: 'Turbo' }];
     }
 
     if (this.accessory.context.config.model == 'AC1715') {
@@ -33,7 +37,7 @@ class Handler {
         pwr: 'D03-02',
         om: 'D03-13',
         speed: 'D03-13',
-        mode: 'D03-11',
+        mode: 'D03-12',
         cl: 'D03-03',
         aqil: 'D03-04',
         uil: 'D03-05',
@@ -52,8 +56,6 @@ class Handler {
         pwr: {
           OFF: 0,
           ON: 1,
-          '0': 'OFF',
-          '1': 'ON',
           0: 'OFF',
           1: 'ON'
         },
@@ -98,11 +100,15 @@ class Handler {
   }
 
   handleCommand(key, value) {
-    key = this.keyMaps[key] || key;
     value = this.valueMaps[key] ? this.valueMaps[key][value] : value;
+    key = this.keyMaps[key] || key;
     logger.debug(`${key}=${value}`, this.accessory.displayName);
 
-    return `${key}=${value}`;
+    if (value.includes(' ')) {
+      return `${key}="${value}"`;
+    } else {
+      return `${key}=${value}`;
+    }
   }
 
   speedsMinStep() {
