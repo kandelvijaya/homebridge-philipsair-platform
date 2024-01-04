@@ -1,8 +1,8 @@
 {
-  "name": "@kv/homebridge-philipsair-platform",
-  "version": "3.0.1",
-  "description": "Homebridge plugin for philips air purifier and humidifier.",
-  "author": "kv (https://github.com/we5/homebridge-philipsair-platform)",
+  "name": "@kandelvijaya/homebridge-philipsair-platform",
+  "version": "3.0.2",
+  "description": "Homebridge plugin for philips air purifier and humidifier. Fixed for AC1715/10 and 11",
+  "author": "kandelvijaya (https://github.com/kandelvijaya/homebridge-philipsair-platform)",
   "scripts": {
     "lint": "eslint --fix .",
     "watch": "npm run build && npm link && nodemon",
@@ -22,7 +22,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-unicorn": "^38.0.0",
     "homebridge": "^1.3.9",
-    "nodemon": "^2.0.13",
+    "nodemon": "^2.0.22",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2"
   },
@@ -39,7 +39,7 @@
       "url": "https://github.com/sponsors/we5"
     }
   ],
-  "homepage": "https://github.com/we5/homebridge-philipsair-platform#readme",
+  "homepage": "https://github.com/kandelvijaya/homebridge-philipsair-platform",
   "keywords": [
     "philips",
     "homebridge-plugin",
@@ -53,6 +53,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/we5/homebridge-philipsair-platform.git"
+    "url": "git+https://github.com/kandelvijaya/homebridge-philipsair-platform"
   }
 }
