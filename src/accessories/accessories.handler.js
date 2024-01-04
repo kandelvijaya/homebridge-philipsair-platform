@@ -52,8 +52,10 @@ class Handler {
         pwr: {
           OFF: 0,
           ON: 1,
+          '0': 'OFF',
+          '1': 'ON',
           0: 'OFF',
-          1: 'ON',
+          1: 'ON'
         },
       };
     }
