@@ -104,7 +104,9 @@ class Handler {
     key = this.keyMaps[key] || key;
     logger.debug(`${key}=${value}`, this.accessory.displayName);
 
-    if (value.includes(' ')) {
+
+
+    if (typeof value === 'string' && value.includes(' ')) {
       return `${key}="${value}"`;
     } else {
       return `${key}=${value}`;
